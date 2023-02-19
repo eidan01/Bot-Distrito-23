@@ -404,7 +404,7 @@ client.on("interactionCreate", async (interaction) => {
 client.on("messageCreate", (message) => {
   let mention = new Discord.EmbedBuilder()
 
-    .setDescription(`Coé menor`)
+    .setDescription(`O-oi Onichan, tudo bem?\nprecisando de ajuda chama meu dono ok?!\nSó digitar @saiko ou @geaga <3`)
     .setColor(`#00000`);
 
   if (message.author.bot) return;
