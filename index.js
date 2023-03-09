@@ -1,3 +1,5 @@
+//** constants and requisitions **
+
 const Discord = require("discord.js");
 
 const { Player } = require("discord-player");
@@ -6,6 +8,9 @@ const { Client, GatewayIntentBits } = require("discord.js");
 
 const config = require("./config.json");
 
+//** end **
+
+//** intentbits discord.js **
 const client = new Discord.Client({
   intents: [
     Discord.GatewayIntentBits.Guilds,
@@ -15,6 +20,8 @@ const client = new Discord.Client({
     Discord.GatewayIntentBits.GuildVoiceStates,
   ],
 });
+
+//** end **
 
 module.exports = client;
 
@@ -32,13 +39,21 @@ client.on("interactionCreate", (interaction) => {
   }
 });
 
+//** console log **
+
 client.on("ready", () => {
   console.log(`🔥 Estou online em ${client.user.username}!`);
 });
 
+//** fim do console log **
+
+//** requisição para acesso a pasta da handler **
+
 client.slashCommands = new Discord.Collection();
 
 require("./handler")(client);
+
+//** fim **
 
 client.login(config.token);
 
@@ -47,8 +62,7 @@ client.on("interactionCreate", (interaction) => {
     if (interaction.customId === "painel_ticket") {
       let opc = interaction.values[0];
       if (opc === "opc1") {
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // Nova opção
 
         let nome = `📨-${interaction.user.id}`;
